@@ -1,33 +1,33 @@
 # BankNexus: Core Banking & Transaction Management System
 
-A modular, terminal-based Core Banking System developed in Core Java featuring dynamic account management, real-time balance validation, custom exception handling, and automated file I/O audit exports[cite: 9].
+A modular, terminal-based Core Banking System developed in Core Java featuring dynamic account management, real-time balance validation, custom exception handling, and automated file I/O audit exports.
 
 ---
 
 # 1. Project Overview
 
-Traditional manual banking registers and unlinked tracking systems are vulnerable to calculation errors, missing transaction trails, and unauthorized account overdrafts. BankNexus provides an automated, object-oriented desktop banking engine implemented strictly in Core Java. The application models both Savings and Current banking accounts[cite: 7, 10], strictly enforces minimum balance thresholds and overdraft constraints[cite: 7, 10], tracks atomic deposits and withdrawals with localized timestamps[cite: 6, 11], and generates persistent account statement audit files directly using native Java File I/O[cite: 9].
+Traditional manual banking registers and unlinked tracking systems are vulnerable to calculation errors, missing transaction trails, and unauthorized account overdrafts. BankNexus provides an automated, object-oriented desktop banking engine implemented strictly in Core Java. The application models both Savings and Current banking accounts, strictly enforces minimum balance thresholds and overdraft constraints, tracks atomic deposits and withdrawals with localized timestamps and generates persistent account statement audit files directly using native Java File I/O.
 
 ---
 
 # 2. Key Features
 
-- Dual Account Architecture: Implements Savings Accounts with strict minimum balance boundaries and Current Accounts with customizable commercial overdraft facilities[cite: 7, 10].
-- Strict Transaction Invariants: Validates deposits, withdrawals, and account-to-account transfers atomically, rejecting negative amounts, zero values, and unauthorized overdraft requests[cite: 6, 7, 9].
-- Custom Checked Exceptions: Enforces domain business logic cleanly through InsufficientFundsException to intercept invalid withdrawals without application crashes[cite: 7, 8, 10].
-- Inter-Account Fund Transfers: Features an integrated fund transfer engine that executes atomic withdrawals from the source account and credits to the destination account[cite: 9].
-- Complete Audit History: Maintains an internal ledger of all transactions with real-time timestamps using Java's LocalDateTime APIs[cite: 6, 11].
-- Automated File I/O Persistence: Exports complete customer statements and chronological transaction ledgers directly to disk as text-based audit logs[cite: 9].
+- Dual Account Architecture: Implements Savings Accounts with strict minimum balance boundaries and Current Accounts with customizable commercial overdraft facilities.
+- Strict Transaction Invariants: Validates deposits, withdrawals, and account-to-account transfers atomically, rejecting negative amounts, zero values, and unauthorized overdraft requests.
+- Custom Checked Exceptions: Enforces domain business logic cleanly through InsufficientFundsException to intercept invalid withdrawals without application crashes.
+- Inter-Account Fund Transfers: Features an integrated fund transfer engine that executes atomic withdrawals from the source account and credits to the destination account.
+- Complete Audit History: Maintains an internal ledger of all transactions with real-time timestamps using Java's LocalDateTime APIs.
+- Automated File I/O Persistence: Exports complete customer statements and chronological transaction ledgers directly to disk as text-based audit logs.
 
 ---
 
 # 3. Technologies and Tools Used
 
 - Programming Language: Java SE (JDK 17 or higher)
-- Design Paradigm: Object-Oriented Programming (Abstraction, Inheritance, Polymorphism, Encapsulation, Custom Checked Exceptions)[cite: 6, 7, 8, 10]
-- Collections Framework: Map and HashMap for active accounts, List and ArrayList for transaction history[cite: 6, 9]
-- Date and Time API: java.time.LocalDateTime and java.time.format.DateTimeFormatter[cite: 11]
-- File Persistence: Native Java Character Streams (BufferedWriter and FileWriter)[cite: 9]
+- Design Paradigm: Object-Oriented Programming (Abstraction, Inheritance, Polymorphism, Encapsulation, Custom Checked Exceptions).
+- Collections Framework: Map and HashMap for active accounts, List and ArrayList for transaction history.
+- Date and Time API: java.time.LocalDateTime and java.time.format.DateTimeFormatter.
+- File Persistence: Native Java Character Streams (BufferedWriter and FileWriter).
 - Development Environment: Visual Studio Code, Command Prompt, or PowerShell
 - Version Control: Git and GitHub
 
@@ -37,22 +37,22 @@ Traditional manual banking registers and unlinked tracking systems are vulnerabl
 
 The project follows a clean object-oriented architecture dividing presentation, business domain models, and file exports:
 
-- Presentation Layer (Main.java): Runs the interactive CLI menu loop, collects user inputs using Scanner, validates inputs defensively, and formats console feedback[cite: 9].
-- Abstract Domain Entity (Account.java): Defines core account contracts, attributes (accountNumber, accountHolderName, balance), deposits, and polymorphic withdrawal methods[cite: 6].
-- Specialized Models (SavingsAccount.java, CurrentAccount.java): Enforce concrete account behaviors such as the Rs. 1000 minimum balance check or overdraft ceiling limits[cite: 7, 10].
-- Transaction Ledger (Transaction.java): Models individual banking actions, automatically generating formatted timestamps, transaction types, and resultant balances[cite: 11].
-- Persistence Mechanism: Generates and writes structured account statements directly to local storage as formatted text files[cite: 9].
+- Presentation Layer (Main.java): Runs the interactive CLI menu loop, collects user inputs using Scanner, validates inputs defensively, and formats console feedback.
+- Abstract Domain Entity (Account.java): Defines core account contracts, attributes (accountNumber, accountHolderName, balance), deposits, and polymorphic withdrawal methods.
+- Specialized Models (SavingsAccount.java, CurrentAccount.java): Enforce concrete account behaviors such as the Rs. 1000 minimum balance check or overdraft ceiling limits.
+- Transaction Ledger (Transaction.java): Models individual banking actions, automatically generating formatted timestamps, transaction types, and resultant balances.
+- Persistence Mechanism: Generates and writes structured account statements directly to local storage as formatted text files.
 
 ---
 
 # 5. Repository File Structure
 
-- Account.java: Abstract parent class defining fundamental bank account attributes and methods[cite: 6].
-- SavingsAccount.java: Concrete subclass enforcing the Rs. 1000 minimum balance rule[cite: 10].
-- CurrentAccount.java: Concrete subclass handling commercial credit limits and overdraft withdrawals[cite: 7].
-- Transaction.java: Domain class representing a logged financial transaction with formatted timestamps[cite: 11].
-- InsufficientFundsException.java: Custom checked exception representing unauthorized withdrawal attempts[cite: 8].
-- Main.java: Main driver class containing the CLI menu, seed accounts, transaction handlers, and file exporter[cite: 9].
+- Account.java: Abstract parent class defining fundamental bank account attributes and methods.
+- SavingsAccount.java: Concrete subclass enforcing the Rs. 1000 minimum balance rule.
+- CurrentAccount.java: Concrete subclass handling commercial credit limits and overdraft withdrawals.
+- Transaction.java: Domain class representing a logged financial transaction with formatted timestamps.
+- InsufficientFundsException.java: Custom checked exception representing unauthorized withdrawal attempts.
+- Main.java: Main driver class containing the CLI menu, seed accounts, transaction handlers, and file exporter.
 - README.md: Detailed repository documentation and usage guide.
 
 ---
@@ -70,8 +70,7 @@ java -version
 
 1. Clone the repository:
 
-git clone https://github.com/anandgautam1610/BankNexus.git
-cd BankNexus
+git clone https://github.com/satyamkashyap3006/Banking-System-Java.git
 
 2. Compile all source files into the bin folder:
 
@@ -89,16 +88,16 @@ java -cp bin Main
 
 # 7. Instructions for Testing
 
-The application comes pre-loaded with sample accounts (Savings Account "SB101" with Rs. 5000.00 and Current Account "CA201" with Rs. 10000.00 and Rs. 5000.00 overdraft)[cite: 9]. Use the following test scenarios to verify system behavior:
+The application comes pre-loaded with sample accounts (Savings Account "SB101" with Rs. 5000.00 and Current Account "CA201" with Rs. 10000.00 and Rs. 5000.00 overdraft). Use the following test scenarios to verify system behavior:
 
 ### Test Case 1: Account Creation and Deposit
-Choose Option 1 (Create New Account) and register an account by entering unique Account Number as "SB102", Holder Name as "Anand Gautam", choose Type 1 (Savings), and enter Initial Deposit as "2000.00"[cite: 9]. Next, select Option 2 (Deposit Funds), enter Account Number "SB102", and deposit "1500.00"[cite: 9]. The system outputs "Success! New Balance: Rs 3500.00", confirming valid balance mutation[cite: 9].
+Choose Option 1 (Create New Account) and register an account by entering unique Account Number as "SB102", Holder Name as "Satyam Kashyap", choose Type 1 (Savings), and enter Initial Deposit as "2000.00". Next, select Option 2 (Deposit Funds), enter Account Number "SB102", and deposit "1500.00". The system outputs "Success! New Balance: Rs 3500.00", confirming valid balance mutation.
 
 ### Test Case 2: Minimum Balance Violation (InsufficientFundsException)
-Choose Option 3 (Withdraw Funds), provide Account Number "SB101" (Current Balance: Rs. 5000.00), and enter a Withdrawal Amount of "4500.00"[cite: 9]. Because Savings accounts require a mandatory minimum balance of Rs. 1000.00, the remaining balance would fall to Rs. 500.00[cite: 10]. The system cleanly catches the custom InsufficientFundsException and outputs "Transaction Failed: Withdrawal rejected: Must maintain minimum balance of Rs 1000.0", leaving the original balance unchanged[cite: 9, 10].
+Choose Option 3 (Withdraw Funds), provide Account Number "SB101" (Current Balance: Rs. 5000.00), and enter a Withdrawal Amount of "4500.00". Because Savings accounts require a mandatory minimum balance of Rs. 1000.00, the remaining balance would fall to Rs. 500.00. The system cleanly catches the custom InsufficientFundsException and outputs "Transaction Failed: Withdrawal rejected: Must maintain minimum balance of Rs 1000.0", leaving the original balance unchanged.
 
 ### Test Case 3: Inter-Account Transfer and File Export
-Choose Option 4 (Transfer Funds) to transfer "1000.00" from source account "SB101" to beneficiary account "CA201"[cite: 9]. The system displays "Transfer Successful! Transferred Rs 1000.00 from SB101 to CA201."[cite: 9] Next, choose Option 5 (View Statement & Export Audit Log) for "SB101"[cite: 9]. The terminal prints the complete ledger containing initial deposits, withdrawals, and transfers, and successfully writes an audit log file named "SB101_statement.txt" to the local directory[cite: 9].
+Choose Option 4 (Transfer Funds) to transfer "1000.00" from source account "SB101" to beneficiary account "CA201". The system displays "Transfer Successful! Transferred Rs 1000.00 from SB101 to CA201." Next, choose Option 5 (View Statement & Export Audit Log) for "SB101". The terminal prints the complete ledger containing initial deposits, withdrawals, and transfers, and successfully writes an audit log file named "SB101_statement.txt" to the local directory.
 
 ---
 
